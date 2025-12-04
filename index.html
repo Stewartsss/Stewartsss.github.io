@@ -145,7 +145,7 @@
             flex-wrap: wrap;
         }
         
-        /* Active Ads Section - NEW! */
+        /* Active Ads Section */
         .active-ads {
             background: white;
             padding: 5rem 0;
@@ -552,7 +552,7 @@
         </div>
     </section>
 
-    <!-- ACTIVE ADS SECTION - NEW! -->
+    <!-- ACTIVE ADS SECTION -->
     <section class="active-ads" id="active-ads">
         <div class="container">
             <div class="section-title">
@@ -796,12 +796,12 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section with AD SUBMISSION FORM -->
     <section class="section" id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Contact & Support</h2>
-                <p>We're here to help you succeed</p>
+                <h2>Contact & Ad Submission</h2>
+                <p>Submit your ad after payment</p>
             </div>
             
             <div style="text-align: center; max-width: 600px; margin: 0 auto;">
@@ -829,14 +829,78 @@
                             <strong>Payment Security:</strong> PayPal & Gumroad Protected
                         </p>
                     </div>
-                    
-                    <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 2px solid #f0f4ff;">
-                        <h4 style="color: var(--secondary); margin-bottom: 1rem;">Ready to Get Started?</h4>
-                        <a href="#pricing" class="btn btn-primary" style="display: inline-block; margin-top: 1rem;">
-                            Choose Your Plan Now
-                        </a>
-                    </div>
                 </div>
+            </div>
+            
+            <!-- AD SUBMISSION FORM - NEW! -->
+            <div style="background: white; padding: 2.5rem; border-radius: 15px; margin-top: 3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+                <h3 style="color: var(--secondary); margin-bottom: 1.5rem; text-align: center;">
+                    <i class="fas fa-upload"></i> Submit Your Ad (After Payment)
+                </h3>
+                
+                <form id="ad-submission-form" style="max-width: 500px; margin: 0 auto;">
+                    <div style="display: grid; gap: 1rem;">
+                        <input type="text" placeholder="Your Name" required 
+                               style="padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        
+                        <input type="email" placeholder="Your Email" required 
+                               style="padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        
+                        <select required style="padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; background: white;">
+                            <option value="">Package Purchased</option>
+                            <option value="basic">Basic - $9.99</option>
+                            <option value="pro">Pro - $24.99</option>
+                            <option value="premium">Premium - $49.99</option>
+                        </select>
+                        
+                        <input type="text" placeholder="Ad Headline" required 
+                               style="padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        
+                        <textarea placeholder="Ad Description" rows="4" required
+                                  style="padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; resize: vertical;"></textarea>
+                        
+                        <input type="url" placeholder="Target URL (where ad links to)" required 
+                               style="padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        
+                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 0.5rem 0;">
+                            <p style="margin-bottom: 0.5rem; color: #666; font-size: 0.95rem;">
+                                <i class="fas fa-info-circle"></i> <strong>Important:</strong> Email your ad image to:
+                            </p>
+                            <p style="color: var(--primary); font-weight: bold; font-size: 1.1rem;">
+                                roodyfilsaime15@gmail.com
+                            </p>
+                            <p style="font-size: 0.9rem; color: #888; margin-top: 0.5rem;">
+                                Recommended: 728x90 or 300x250 pixels. Max 1MB.
+                                Include your payment receipt number in the email.
+                            </p>
+                        </div>
+                        
+                        <button type="submit" 
+                                style="background: var(--accent); color: white; border: none; padding: 14px; 
+                                       border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 1rem;
+                                       font-size: 1.1rem; transition: all 0.3s;">
+                            <i class="fas fa-paper-plane"></i> Submit Ad Details
+                        </button>
+                    </div>
+                </form>
+                
+                <div style="margin-top: 2rem; padding: 1.5rem; background: #f0f9ff; border-radius: 8px; border-left: 4px solid var(--success);">
+                    <h4 style="color: var(--secondary); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-exclamation-circle"></i> Important Notes:
+                    </h4>
+                    <ul style="color: #666; margin-left: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Submit this form ONLY after payment confirmation</li>
+                        <li style="margin-bottom: 0.5rem;">Ads are activated within 24 hours of submission</li>
+                        <li style="margin-bottom: 0.5rem;">Include payment receipt number when emailing your ad image</li>
+                        <li>Ads run for 30 days from activation date</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#pricing" class="btn btn-primary" style="display: inline-block; padding: 1rem 2.5rem; font-size: 1.1rem;">
+                    <i class="fas fa-shopping-cart"></i> Choose Your Plan Now
+                </a>
             </div>
         </div>
     </section>
@@ -857,7 +921,7 @@
                         <li><a href="#active-ads">Active Ads</a></li>
                         <li><a href="#pricing">Pricing</a></li>
                         <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#contact">Contact & Submit Ad</a></li>
                     </ul>
                 </div>
                 
@@ -913,9 +977,63 @@
                 
                 // Show confirmation message
                 setTimeout(() => {
-                    alert(`Thank you! You'll be redirected to ${platform} to complete your $${price} payment.\n\nAfter payment, please email your ad to: roodyfilsaime15@gmail.com`);
+                    alert(`Thank you! You'll be redirected to ${platform} to complete your $${price} payment.\n\nAfter payment, please submit your ad using the form on our Contact page.`);
                 }, 300);
             });
+        });
+
+        // AD SUBMISSION FORM HANDLER
+        document.getElementById('ad-submission-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get all form inputs
+            const formData = {
+                name: this.querySelector('input[placeholder="Your Name"]').value,
+                email: this.querySelector('input[placeholder="Your Email"]').value,
+                package: this.querySelector('select').value,
+                headline: this.querySelector('input[placeholder="Ad Headline"]').value,
+                description: this.querySelector('textarea').value,
+                url: this.querySelector('input[placeholder="Target URL"]').value
+            };
+            
+            // Create email body
+            const packageNames = {
+                'basic': 'Basic - $9.99',
+                'pro': 'Pro - $24.99',
+                'premium': 'Premium - $49.99'
+            };
+            
+            const emailBody = `
+NEW AD SUBMISSION - AdvertisePro
+=================================
+Customer Name: ${formData.name}
+Customer Email: ${formData.email}
+Package: ${packageNames[formData.package] || formData.package}
+Ad Headline: ${formData.headline}
+Ad Description: ${formData.description}
+Target URL: ${formData.url}
+Submission Date: ${new Date().toLocaleDateString()}
+=================================
+
+IMPORTANT: Customer should email ad image separately to roodyfilsaime15@gmail.com
+Include payment receipt number in the email with the image.
+
+Recommended image size: 728x90 or 300x250 pixels
+Maximum file size: 1MB
+`;
+            
+            // Open user's email client
+            const subject = `New Ad Submission - ${formData.headline}`;
+            const mailtoLink = `mailto:roodyfilsaime15@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Open in new tab
+            window.open(mailtoLink, '_blank');
+            
+            // Show success message
+            alert('✅ Ad details saved! Please check your email client.\n\nA pre-filled email has been prepared. Please:\n1. Send that email\n2. Attach your ad image to the same email\n3. Include your payment receipt number\n\nYour ad will be activated within 24 hours!');
+            
+            // Reset form
+            this.reset();
         });
 
         // Current year for copyright
@@ -929,95 +1047,4 @@
         });
     </script>
 </body>
-</html> 
-<!-- Add this to your Contact section -->
-<div style="background: white; padding: 2.5rem; border-radius: 15px; margin-top: 2rem;">
-    <h3 style="color: var(--secondary); margin-bottom: 1.5rem;">
-        <i class="fas fa-upload"></i> Submit Your Ad (After Payment)
-    </h3>
-    
-    <form id="ad-submission-form">
-        <div style="display: grid; gap: 1rem; max-width: 500px; margin: 0 auto;">
-            <input type="text" placeholder="Your Name" required 
-                   style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
-            
-            <input type="email" placeholder="Your Email" required 
-                   style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
-            
-            <input type="text" placeholder="Package Purchased (Basic/Pro/Premium)" required 
-                   style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
-            
-            <input type="text" placeholder="Ad Headline" required 
-                   style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
-            
-            <textarea placeholder="Ad Description" rows="4" required
-                      style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;"></textarea>
-            
-            <input type="url" placeholder="Target URL (where ad links to)" required 
-                   style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
-            
-            <div>
-                <p style="margin-bottom: 0.5rem; color: #666;">
-                    <i class="fas fa-info-circle"></i> Email your ad image to: 
-                    <strong>roodyfilsaime15@gmail.com</strong>
-                </p>
-                <p style="font-size: 0.9rem; color: #888;">
-                    Recommended: 728x90 or 300x250 pixels. Max 1MB.
-                </p>
-            </div>
-            
-            <button type="submit" 
-                    style="background: var(--accent); color: white; border: none; padding: 14px; 
-                           border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 1rem;">
-                Submit Ad Details
-            </button>
-        </div>
-    </form>
-    
-    <div style="margin-top: 2rem; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
-        <h4 style="color: var(--secondary); margin-bottom: 0.5rem;">
-            <i class="fas fa-exclamation-circle"></i> Important Notes:
-        </h4>
-        <ul style="color: #666; margin-left: 1rem;">
-            <li>Submit this form ONLY after payment confirmation</li>
-            <li>Ads activated within 24 hours of submission</li>
-            <li>Include payment receipt number in email with image</li>
-            <li>Ads run for 30 days from activation date</li>
-        </ul>
-    </div>
-</div>
-
-<script>
-document.getElementById('ad-submission-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const inputs = this.querySelectorAll('input, textarea');
-    let formData = {};
-    inputs.forEach(input => {
-        if(input.name || input.placeholder) {
-            const key = input.name || input.placeholder;
-            formData[key] = input.value;
-        }
-    });
-    
-    // Create email body
-    const emailBody = `
-NEW AD SUBMISSION:
-Name: ${formData['Your Name'] || ''}
-Email: ${formData['Your Email'] || ''}
-Package: ${formData['Package Purchased (Basic/Pro/Premium)'] || ''}
-Headline: ${formData['Ad Headline'] || ''}
-Description: ${formData['Ad Description'] || ''}
-URL: ${formData['Target URL (where ad links to)'] || ''}
-
-IMPORTANT: Customer should email ad image separately.
-`;
-    
-    // Open user's email client
-    const mailtoLink = `mailto:roodyfilsaime15@gmail.com?subject=New Ad Submission&body=${encodeURIComponent(emailBody)}`;
-    window.open(mailtoLink, '_blank');
-    
-    alert('Thank you! Please check your email client. Send the pre-filled email, and remember to attach your ad image.');
-});
-</script> 
+</html>
