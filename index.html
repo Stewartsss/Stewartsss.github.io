@@ -929,4 +929,95 @@
         });
     </script>
 </body>
-</html>
+</html> 
+<!-- Add this to your Contact section -->
+<div style="background: white; padding: 2.5rem; border-radius: 15px; margin-top: 2rem;">
+    <h3 style="color: var(--secondary); margin-bottom: 1.5rem;">
+        <i class="fas fa-upload"></i> Submit Your Ad (After Payment)
+    </h3>
+    
+    <form id="ad-submission-form">
+        <div style="display: grid; gap: 1rem; max-width: 500px; margin: 0 auto;">
+            <input type="text" placeholder="Your Name" required 
+                   style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
+            
+            <input type="email" placeholder="Your Email" required 
+                   style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
+            
+            <input type="text" placeholder="Package Purchased (Basic/Pro/Premium)" required 
+                   style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
+            
+            <input type="text" placeholder="Ad Headline" required 
+                   style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
+            
+            <textarea placeholder="Ad Description" rows="4" required
+                      style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;"></textarea>
+            
+            <input type="url" placeholder="Target URL (where ad links to)" required 
+                   style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
+            
+            <div>
+                <p style="margin-bottom: 0.5rem; color: #666;">
+                    <i class="fas fa-info-circle"></i> Email your ad image to: 
+                    <strong>roodyfilsaime15@gmail.com</strong>
+                </p>
+                <p style="font-size: 0.9rem; color: #888;">
+                    Recommended: 728x90 or 300x250 pixels. Max 1MB.
+                </p>
+            </div>
+            
+            <button type="submit" 
+                    style="background: var(--accent); color: white; border: none; padding: 14px; 
+                           border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 1rem;">
+                Submit Ad Details
+            </button>
+        </div>
+    </form>
+    
+    <div style="margin-top: 2rem; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+        <h4 style="color: var(--secondary); margin-bottom: 0.5rem;">
+            <i class="fas fa-exclamation-circle"></i> Important Notes:
+        </h4>
+        <ul style="color: #666; margin-left: 1rem;">
+            <li>Submit this form ONLY after payment confirmation</li>
+            <li>Ads activated within 24 hours of submission</li>
+            <li>Include payment receipt number in email with image</li>
+            <li>Ads run for 30 days from activation date</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+document.getElementById('ad-submission-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form data
+    const inputs = this.querySelectorAll('input, textarea');
+    let formData = {};
+    inputs.forEach(input => {
+        if(input.name || input.placeholder) {
+            const key = input.name || input.placeholder;
+            formData[key] = input.value;
+        }
+    });
+    
+    // Create email body
+    const emailBody = `
+NEW AD SUBMISSION:
+Name: ${formData['Your Name'] || ''}
+Email: ${formData['Your Email'] || ''}
+Package: ${formData['Package Purchased (Basic/Pro/Premium)'] || ''}
+Headline: ${formData['Ad Headline'] || ''}
+Description: ${formData['Ad Description'] || ''}
+URL: ${formData['Target URL (where ad links to)'] || ''}
+
+IMPORTANT: Customer should email ad image separately.
+`;
+    
+    // Open user's email client
+    const mailtoLink = `mailto:roodyfilsaime15@gmail.com?subject=New Ad Submission&body=${encodeURIComponent(emailBody)}`;
+    window.open(mailtoLink, '_blank');
+    
+    alert('Thank you! Please check your email client. Send the pre-filled email, and remember to attach your ad image.');
+});
+</script> 
