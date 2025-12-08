@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdvertisePro - Affiliate Marketing Advertising</title>
+    <title>AdvertisingPro - Affiliate Marketing Advertising</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -16,220 +16,175 @@
             --gray: #6c757d;
         }
         
+        /* Reset and base styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: #f5f7fb;
-            color: var(--dark);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
         }
         
         .container {
-            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
-        /* Header */
+        /* Header/Navigation */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 1.5rem 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: sticky;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
         }
         
-        .header-content {
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 0;
         }
         
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .logo i {
-            color: var(--accent);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-        
-        nav a {
-            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
             text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
             font-weight: 500;
             transition: color 0.3s;
         }
         
-        nav a:hover {
-            color: var(--accent);
-        }
-        
-        .btn {
-            padding: 0.7rem 1.8rem;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: none;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-        }
-        
-        .btn-outline:hover {
-            background: white;
+        .nav-links a:hover {
             color: var(--primary);
+        }
+        
+        /* BANNER SECTION - Updated to match your original */
+        .banner {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .banner-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .banner h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .banner p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .banner-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary, .btn-secondary {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
         }
         
         .btn-primary {
             background: var(--accent);
             color: white;
+            border: 2px solid var(--accent);
         }
         
         .btn-primary:hover {
-            background: #d91a6a;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(217, 26, 106, 0.3);
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(247, 37, 133, 0.3);
         }
         
-        /* Hero */
-        .hero {
-            padding: 5rem 0;
-            background: linear-gradient(rgba(67, 97, 238, 0.9), rgba(58, 12, 163, 0.9));
+        .btn-secondary {
+            background: transparent;
             color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Stats Banner */
+        .stats-banner {
+            background: white;
+            padding: 3rem 0;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+            margin-top: -2rem;
+            position: relative;
+            z-index: 100;
+            border-radius: 15px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
             text-align: center;
         }
         
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
         }
         
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
+        .stat-item p {
+            color: var(--gray);
+            font-weight: 500;
         }
         
         /* Active Ads Section */
         .active-ads {
             background: white;
-            padding: 5rem 0;
-        }
-        
-        .ads-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .ad-card {
-            background: #f8f9fa;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-        
-        .ad-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .ad-image {
-            height: 150px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-        }
-        
-        .ad-content {
-            padding: 1.5rem;
-        }
-        
-        .ad-title {
-            font-size: 1.3rem;
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .ad-description {
-            color: var(--gray);
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-        
-        .advertiser {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #eee;
-        }
-        
-        .advertiser-avatar {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-        
-        .ad-badge {
-            background: var(--accent);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-        
-        /* Pricing */
-        .section {
             padding: 5rem 0;
         }
         
@@ -240,182 +195,132 @@
         
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--secondary);
+            color: var(--dark);
             margin-bottom: 1rem;
         }
         
         .section-title p {
             color: var(--gray);
+            font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto;
         }
         
-        .pricing-grid {
+        .ads-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-top: 2rem;
         }
         
-        .pricing-card {
+        .ad-card {
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
+            border: 1px solid #eee;
         }
         
-        .pricing-card:hover {
+        .ad-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
         
-        .pricing-card.popular::before {
-            content: "MOST POPULAR";
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: var(--accent);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            font-size: 0.8rem;
-            font-weight: 700;
-            border-bottom-left-radius: 15px;
-            z-index: 2;
-        }
-        
-        .pricing-header {
-            padding: 2.5rem 2rem;
-            text-align: center;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            position: relative;
-        }
-        
-        .pricing-header h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .price {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin: 1rem 0;
-        }
-        
-        .price span {
-            font-size: 1.2rem;
-            font-weight: normal;
-            opacity: 0.9;
-        }
-        
-        .pricing-body {
-            padding: 2.5rem;
-        }
-        
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 2.5rem;
-        }
-        
-        .pricing-features li {
-            padding: 0.7rem 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .pricing-features li i {
-            color: var(--success);
-            font-size: 1.1rem;
-        }
-        
-        .payment-options {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        
-        .payment-btn {
-            padding: 1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            text-align: center;
-            transition: all 0.3s;
+        .ad-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-        }
-        
-        .payment-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .paypal-btn {
-            background: #003087;
             color: white;
+            font-size: 3rem;
         }
         
-        .paypal-btn:hover {
-            background: #002766;
+        .ad-content {
+            padding: 2rem;
         }
         
-        .gumroad-btn {
-            background: #ff90e8;
-            color: #000;
+        .ad-content h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
         
-        .gumroad-btn:hover {
-            background: #ff7ae0;
+        .ad-content p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
         }
         
-        .payment-instructions {
-            background: #f8f9fa;
-            border-left: 4px solid var(--success);
-            padding: 1.2rem;
-            margin: 1.5rem 0;
-            border-radius: 8px;
-            font-size: 0.95rem;
+        .ad-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+            color: var(--gray);
         }
         
-        /* How It Works */
-        .how-it-works {
-            background: linear-gradient(135deg, #f0f4ff, #e9f7fe);
-            padding: 4rem 0;
-            margin: 4rem 0;
+        .ad-stats i {
+            margin-right: 0.5rem;
+            color: var(--primary);
         }
         
-        .steps {
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: var(--light);
+        }
+        
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
         
-        .step {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
+        .feature {
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
         }
         
-        .step-number {
-            background: var(--primary);
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
             color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 1.5rem;
-            font-weight: bold;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            opacity: 0.9;
         }
         
         /* Footer */
@@ -425,28 +330,17 @@
             padding: 4rem 0 2rem;
         }
         
-        .footer-grid {
+        .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
         
-        .footer-column h3 {
-            font-size: 1.3rem;
+        .footer-section h3 {
             margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-        
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--accent);
+            color: white;
+            font-size: 1.3rem;
         }
         
         .footer-links {
@@ -458,61 +352,81 @@
         }
         
         .footer-links a {
-            color: #adb5bd;
+            color: #ccc;
             text-decoration: none;
             transition: color 0.3s;
         }
         
         .footer-links a:hover {
-            color: white;
+            color: var(--primary);
+        }
+        
+        .footer-links i {
+            margin-right: 0.8rem;
+            width: 20px;
+            color: var(--accent);
         }
         
         .copyright {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #adb5bd;
+            border-top: 1px solid #444;
+            color: #999;
             font-size: 0.9rem;
         }
         
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
+            .nav-links {
+                display: none;
             }
             
-            nav ul {
-                justify-content: center;
-                flex-wrap: wrap;
+            .banner h1 {
+                font-size: 2.5rem;
             }
             
-            .hero h1 {
-                font-size: 2.2rem;
+            .banner p {
+                font-size: 1.1rem;
             }
             
-            .hero-buttons {
+            .banner {
+                padding: 7rem 0 3rem;
+                min-height: 60vh;
+            }
+            
+            .banner-buttons {
                 flex-direction: column;
                 align-items: center;
             }
             
-            .btn {
+            .btn-primary, .btn-secondary {
                 width: 100%;
                 max-width: 300px;
+                text-align: center;
             }
             
-            .pricing-grid {
+            .stats-banner {
+                margin-top: 0;
+                border-radius: 0;
+                padding: 2rem 0;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .pricing-card {
-                max-width: 400px;
-                margin: 0 auto;
             }
             
             .ads-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .banner h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -521,33 +435,58 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-ad"></i>
-                    <span>AdvertisePro</span>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#active-ads">Active Ads</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-                <a href="#pricing" class="btn btn-primary">Start Advertising</a>
-            </div>
+            <nav>
+                <a href="#" class="logo">AdvertisingPro</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#active-ads">Active Ads</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+    <!-- BANNER SECTION - With your exact text -->
+    <section class="banner" id="home">
         <div class="container">
-            <h1>Promote Your Affiliate Offers</h1>
-            <p>Get your affiliate links seen by thousands of targeted marketers. See ads currently running below!</p>
-            <div class="hero-buttons">
-                <a href="#pricing" class="btn btn-primary">View Pricing Plans</a>
-                <a href="#active-ads" class="btn btn-outline">See Active Ads</a>
+            <div class="banner-content">
+                <h1>Promote Your Affiliate Offers</h1>
+                <p>Maximize your earnings with our powerful advertising platform. Reach thousands of affiliates, track performance in real-time, and scale your affiliate marketing campaigns to new heights.</p>
+                <div class="banner-buttons">
+                    <a href="#active-ads" class="btn-primary">
+                        <i class="fas fa-rocket"></i> Start Promoting Now
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        <i class="fas fa-play-circle"></i> Watch Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Banner -->
+    <section class="stats-banner">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>10,000+</h3>
+                    <p>Active Affiliates</p>
+                </div>
+                <div class="stat-item">
+                    <h3>$5M+</h3>
+                    <p>Commission Paid</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Verified Offers</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Support Available</p>
+                </div>
             </div>
         </div>
     </section>
@@ -556,198 +495,48 @@
     <section class="active-ads" id="active-ads">
         <div class="container">
             <div class="section-title">
-                <h2>Ads Currently Running</h2>
-                <p>See what other affiliate marketers are promoting right now</p>
+                <h2>Currently Active Campaigns</h2>
+                <p>Join thousands of affiliates already earning with these high-performing offers</p>
             </div>
-            
             <div class="ads-grid">
-                <!-- Ad 1 - Example -->
-                <div class="ad-card">
-                    <div class="ad-image">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="ad-content">
-                        <span class="ad-badge">PRO PLAN</span>
-                        <h3 class="ad-title">Affiliate Marketing Mastery Course</h3>
-                        <p class="ad-description">Learn how to earn $5,000+/month with affiliate marketing. Complete step-by-step training.</p>
-                        <div class="advertiser">
-                            <div class="advertiser-avatar">JM</div>
-                            <div>
-                                <strong>John Marketing</strong>
-                                <p>Running for 15 days</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Ad 2 - Example -->
                 <div class="ad-card">
                     <div class="ad-image">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
                     <div class="ad-content">
-                        <span class="ad-badge">PREMIUM PLAN</span>
-                        <h3 class="ad-title">High-Ticket Affiliate Program</h3>
-                        <p class="ad-description">Earn $500+ per sale with our premium software affiliate program. 30% commission.</p>
-                        <div class="advertiser">
-                            <div class="advertiser-avatar">SR</div>
-                            <div>
-                                <strong>Sarah Revenue</strong>
-                                <p>Running for 7 days</p>
-                            </div>
+                        <h3>E-Commerce Platform</h3>
+                        <p>Promote the leading e-commerce solution with up to 30% commission on every sale. Perfect for marketing and business blogs.</p>
+                        <div class="ad-stats">
+                            <span><i class="fas fa-users"></i> 2,450 affiliates</span>
+                            <span><i class="fas fa-chart-line"></i> $45 avg. commission</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Ad 3 - Example -->
                 <div class="ad-card">
                     <div class="ad-image">
-                        <i class="fas fa-tools"></i>
+                        <i class="fas fa-laptop-code"></i>
                     </div>
                     <div class="ad-content">
-                        <span class="ad-badge">BASIC PLAN</span>
-                        <h3 class="ad-title">Affiliate Link Tracker Tool</h3>
-                        <p class="ad-description">Track your affiliate links and optimize conversions. Free trial available.</p>
-                        <div class="advertiser">
-                            <div class="advertiser-avatar">AT</div>
-                            <div>
-                                <strong>Alex Tools</strong>
-                                <p>Running for 22 days</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem;">
-                <p style="color: var(--gray); margin-bottom: 1rem;">Your ad could be here! Join these successful marketers.</p>
-                <a href="#pricing" class="btn btn-primary">Add Your Ad Now</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="section" id="pricing">
-        <div class="container">
-            <div class="section-title">
-                <h2>Affordable Advertising Plans</h2>
-                <p>Choose the perfect package for your budget and goals</p>
-            </div>
-            
-            <div class="pricing-grid">
-                <!-- Basic Plan -->
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Basic</h3>
-                        <div class="price">$9.99<span>/month</span></div>
-                        <p>Perfect for testing new offers</p>
-                    </div>
-                    <div class="pricing-body">
-                        <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> 5,000 targeted impressions</li>
-                            <li><i class="fas fa-check"></i> Basic banner placement</li>
-                            <li><i class="fas fa-check"></i> 30-day listing</li>
-                            <li><i class="fas fa-check"></i> Email support</li>
-                            <li><i class="fas fa-times"></i> Priority placement</li>
-                            <li><i class="fas fa-times"></i> Analytics dashboard</li>
-                        </ul>
-                        
-                        <div class="payment-instructions">
-                            <p><strong>After payment:</strong> Email your ad to <strong>roodyfilsaime15@gmail.com</strong></p>
-                        </div>
-                        
-                        <div class="payment-options">
-                            <!-- PayPal -->
-                            <a href="https://paypal.me/Musi/9.99" 
-                               class="payment-btn paypal-btn" 
-                               target="_blank">
-                               <i class="fab fa-paypal"></i> PayPal - $9.99
-                            </a>
-                            
-                            <!-- Gumroad Link 1 -->
-                            <a href="https://roodyfilsaime.gumroad.com/l/qmvkwh" 
-                               class="payment-btn gumroad-btn" 
-                               target="_blank">
-                               <i class="fas fa-credit-card"></i> Credit Card - $9.99
-                            </a>
+                        <h3>Web Hosting Service</h3>
+                        <p>Earn $100+ for every new customer you refer to our premium hosting services. Recurring commissions available.</p>
+                        <div class="ad-stats">
+                            <span><i class="fas fa-users"></i> 1,890 affiliates</span>
+                            <span><i class="fas fa-chart-line"></i> $120 avg. commission</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Pro Plan (Most Popular) -->
-                <div class="pricing-card popular">
-                    <div class="pricing-header">
-                        <h3>Pro</h3>
-                        <div class="price">$24.99<span>/month</span></div>
-                        <p>Most Popular Choice</p>
+                <div class="ad-card">
+                    <div class="ad-image">
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <div class="pricing-body">
-                        <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> 25,000 targeted impressions</li>
-                            <li><i class="fas fa-check"></i> 2 ad formats (banner + text)</li>
-                            <li><i class="fas fa-check"></i> Priority placement</li>
-                            <li><i class="fas fa-check"></i> Basic analytics</li>
-                            <li><i class="fas fa-check"></i> Email priority support</li>
-                            <li><i class="fas fa-check"></i> 30-day listing</li>
-                        </ul>
-                        
-                        <div class="payment-instructions">
-                            <p><strong>After payment:</strong> Email your ad to <strong>roodyfilsaime15@gmail.com</strong></p>
-                        </div>
-                        
-                        <div class="payment-options">
-                            <!-- PayPal -->
-                            <a href="https://paypal.me/Musi/24.99" 
-                               class="payment-btn paypal-btn" 
-                               target="_blank">
-                               <i class="fab fa-paypal"></i> PayPal - $24.99
-                            </a>
-                            
-                            <!-- Gumroad Link 2 -->
-                            <a href="https://roodyfilsaime.gumroad.com/l/evtlis" 
-                               class="payment-btn gumroad-btn" 
-                               target="_blank">
-                               <i class="fas fa-credit-card"></i> Credit Card - $24.99
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Premium Plan -->
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Premium</h3>
-                        <div class="price">$49.99<span>/month</span></div>
-                        <p>Maximum exposure</p>
-                    </div>
-                    <div class="pricing-body">
-                        <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> 100,000 targeted impressions</li>
-                            <li><i class="fas fa-check"></i> All ad formats</li>
-                            <li><i class="fas fa-check"></i> Top placement on site</li>
-                            <li><i class="fas fa-check"></i> Advanced analytics dashboard</li>
-                            <li><i class="fas fa-check"></i> 24/7 priority support</li>
-                            <li><i class="fas fa-check"></i> Weekly performance reports</li>
-                        </ul>
-                        
-                        <div class="payment-instructions">
-                            <p><strong>After payment:</strong> Email your ad to <strong>roodyfilsaime15@gmail.com</strong></p>
-                        </div>
-                        
-                        <div class="payment-options">
-                            <!-- PayPal -->
-                            <a href="https://paypal.me/Musi/49.99" 
-                               class="payment-btn paypal-btn" 
-                               target="_blank">
-                               <i class="fab fa-paypal"></i> PayPal - $49.99
-                            </a>
-                            
-                            <!-- Gumroad Link 3 -->
-                            <a href="https://roodyfilsaime.gumroad.com/l/pajqhm" 
-                               class="payment-btn gumroad-btn" 
-                               target="_blank">
-                               <i class="fas fa-credit-card"></i> Credit Card - $49.99
-                            </a>
+                    <div class="ad-content">
+                        <h3>Online Courses</h3>
+                        <p>Promote top-rated courses and earn 50% commission on every enrollment. High conversion rates in education niche.</p>
+                        <div class="ad-stats">
+                            <span><i class="fas fa-users"></i> 3,210 affiliates</span>
+                            <span><i class="fas fa-chart-line"></i> $85 avg. commission</span>
                         </div>
                     </div>
                 </div>
@@ -755,209 +544,89 @@
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works" id="how-it-works">
+    <!-- Features Section -->
+    <section class="features" id="features">
         <div class="container">
             <div class="section-title">
-                <h2>How It Works</h2>
-                <p>Get your ads running in just 3 simple steps</p>
+                <h2>Why Choose AdvertisingPro?</h2>
+                <p>Everything you need to succeed in affiliate marketing</p>
             </div>
-            
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Choose Your Plan</h3>
-                    <p>Select Basic ($9.99), Pro ($24.99), or Premium ($49.99) based on your budget and goals.</p>
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Quick Setup</h3>
+                    <p>Get started in minutes with our easy-to-use platform and pre-built templates.</p>
                 </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Make Payment</h3>
-                    <p>Use PayPal or Credit Card via Gumroad. Both methods are secure and instant.</p>
+                <div class="feature">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Real-Time Analytics</h3>
+                    <p>Track clicks, conversions, and earnings with detailed, real-time reporting.</p>
                 </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Send Your Ad</h3>
-                    <p>Email your ad creatives to roodyfilsaime15@gmail.com. We activate within 24 hours.</p>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure Payments</h3>
+                    <p>Receive your commissions reliably with our secure payment system.</p>
                 </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem; background: white; padding: 2rem; border-radius: 10px;">
-                <h3>What to Include in Your Email:</h3>
-                <p style="margin: 1rem 0;">
-                    • Ad image (728x90 or 300x250 pixels recommended)<br>
-                    • Target URL (where ad should link to)<br>
-                    • Ad headline and text<br>
-                    • Your name/contact information
-                </p>
-                <p><strong>Response Time:</strong> 24 hours max</p>
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Our expert team is always available to help you maximize your earnings.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section with AD SUBMISSION FORM -->
-    <section class="section" id="contact">
+    <!-- CTA Section -->
+    <section class="cta-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Contact & Ad Submission</h2>
-                <p>Submit your ad after payment</p>
-            </div>
-            
-            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-                <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
-                    <h3 style="color: var(--secondary); margin-bottom: 1.5rem;"><i class="fas fa-envelope"></i> Contact Information</h3>
-                    
-                    <div style="text-align: left; max-width: 400px; margin: 0 auto;">
-                        <p style="margin: 1rem 0; display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-envelope" style="color: var(--accent);"></i>
-                            <strong>Email:</strong> roodyfilsaime15@gmail.com
-                        </p>
-                        
-                        <p style="margin: 1rem 0; display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-clock" style="color: var(--accent);"></i>
-                            <strong>Response Time:</strong> 24-48 hours
-                        </p>
-                        
-                        <p style="margin: 1rem 0; display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-bolt" style="color: var(--accent);"></i>
-                            <strong>Ad Activation:</strong> Within 24 hours
-                        </p>
-                        
-                        <p style="margin: 1rem 0; display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-shield-alt" style="color: var(--accent);"></i>
-                            <strong>Payment Security:</strong> PayPal & Gumroad Protected
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- AD SUBMISSION FORM - NEW! -->
-            <div style="background: white; padding: 2.5rem; border-radius: 15px; margin-top: 3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
-                <h3 style="color: var(--secondary); margin-bottom: 1.5rem; text-align: center;">
-                    <i class="fas fa-upload"></i> Submit Your Ad (After Payment)
-                </h3>
-                
-                <form id="ad-submission-form" style="max-width: 500px; margin: 0 auto;">
-                    <div style="display: grid; gap: 1rem;">
-                        <input type="text" placeholder="Your Name" required 
-                               style="padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
-                        
-                        <input type="email" placeholder="Your Email" required 
-                               style="padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
-                        
-                        <select required style="padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; background: white;">
-                            <option value="">Package Purchased</option>
-                            <option value="basic">Basic - $9.99</option>
-                            <option value="pro">Pro - $24.99</option>
-                            <option value="premium">Premium - $49.99</option>
-                        </select>
-                        
-                        <input type="text" placeholder="Ad Headline" required 
-                               style="padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
-                        
-                        <textarea placeholder="Ad Description" rows="4" required
-                                  style="padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; resize: vertical;"></textarea>
-                        
-                        <input type="url" placeholder="Target URL (where ad links to)" required 
-                               style="padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
-                        
-                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 0.5rem 0;">
-                            <p style="margin-bottom: 0.5rem; color: #666; font-size: 0.95rem;">
-                                <i class="fas fa-info-circle"></i> <strong>Important:</strong> Email your ad image to:
-                            </p>
-                            <p style="color: var(--primary); font-weight: bold; font-size: 1.1rem;">
-                                roodyfilsaime15@gmail.com
-                            </p>
-                            <p style="font-size: 0.9rem; color: #888; margin-top: 0.5rem;">
-                                Recommended: 728x90 or 300x250 pixels. Max 1MB.
-                                Include your payment receipt number in the email.
-                            </p>
-                        </div>
-                        
-                        <button type="submit" 
-                                style="background: var(--accent); color: white; border: none; padding: 14px; 
-                                       border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 1rem;
-                                       font-size: 1.1rem; transition: all 0.3s;">
-                            <i class="fas fa-paper-plane"></i> Submit Ad Details
-                        </button>
-                    </div>
-                </form>
-                
-                <div style="margin-top: 2rem; padding: 1.5rem; background: #f0f9ff; border-radius: 8px; border-left: 4px solid var(--success);">
-                    <h4 style="color: var(--secondary); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px;">
-                        <i class="fas fa-exclamation-circle"></i> Important Notes:
-                    </h4>
-                    <ul style="color: #666; margin-left: 1.5rem;">
-                        <li style="margin-bottom: 0.5rem;">Submit this form ONLY after payment confirmation</li>
-                        <li style="margin-bottom: 0.5rem;">Ads are activated within 24 hours of submission</li>
-                        <li style="margin-bottom: 0.5rem;">Include payment receipt number when emailing your ad image</li>
-                        <li>Ads run for 30 days from activation date</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="#pricing" class="btn btn-primary" style="display: inline-block; padding: 1rem 2.5rem; font-size: 1.1rem;">
-                    <i class="fas fa-shopping-cart"></i> Choose Your Plan Now
-                </a>
-            </div>
+            <h2>Ready to Start Earning?</h2>
+            <p>Join thousands of successful affiliates who are already promoting offers and earning commissions with AdvertisingPro.</p>
+            <a href="#home" class="btn-primary" style="font-size: 1.2rem; padding: 1.2rem 3rem;">
+                <i class="fas fa-user-plus"></i> Join Free Today
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>AdvertisePro</h3>
-                    <p>Affordable advertising for affiliate marketers. Get your offers seen by thousands of potential buyers.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AdvertisingPro</h3>
+                    <p>The premier platform for affiliate marketers looking to scale their advertising campaigns and maximize revenue.</p>
                 </div>
-                
-                <div class="footer-column">
+                <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#active-ads">Active Ads</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#contact">Contact & Submit Ad</a></li>
+                        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#active-ads"><i class="fas fa-ad"></i> Active Ads</a></li>
+                        <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
+                        <li><a href="#how-it-works"><i class="fas fa-cogs"></i> How It Works</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-column">
-                    <h3>Contact</h3>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-envelope"></i> roodyfilsaime15@gmail.com</li>
-                        <li><i class="fas fa-clock"></i> 24-48 hour response</li>
-                        <li><i class="fas fa-bolt"></i> Fast ad activation</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Payment Methods</h3>
-                    <ul class="footer-links">
-                        <li><i class="fab fa-paypal"></i> PayPal</li>
-                        <li><i class="fas fa-credit-card"></i> Credit/Debit Cards</li>
-                        <li><i class="fab fa-cc-visa"></i> Visa/Mastercard</li>
+                        <li><i class="fas fa-envelope"></i> support@advertisingpro.com</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Marketing St, Digital City</li>
                     </ul>
                 </div>
             </div>
-            
             <div class="copyright">
-                <p>© 2023 AdvertisePro. All rights reserved. | Affiliate Marketing Advertising Platform</p>
-                <p style="margin-top: 0.5rem; font-size: 0.8rem;">Prices in USD | 30-day advertising period</p>
+                <p>&copy; 2024 AdvertisingPro. All rights reserved. | <a href="#" style="color: #4cc9f0;">Privacy Policy</a> | <a href="#" style="color: #4cc9f0;">Terms of Service</a></p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if(targetId === '#') return;
+                
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
                     window.scrollTo({
@@ -968,83 +637,48 @@
             });
         });
 
-        // Payment button tracking
-        document.querySelectorAll('.payment-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const platform = this.classList.contains('paypal-btn') ? 'PayPal' : 'Credit Card';
-                const price = this.textContent.match(/\$([\d.]+)/)[1];
-                console.log(`${platform} payment initiated: $${price}`);
-                
-                // Show confirmation message
-                setTimeout(() => {
-                    alert(`Thank you! You'll be redirected to ${platform} to complete your $${price} payment.\n\nAfter payment, please submit your ad using the form on our Contact page.`);
-                }, 300);
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Animate stats counter
+        function animateStats() {
+            const statItems = document.querySelectorAll('.stat-item h3');
+            statItems.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if(current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current) + (stat.textContent.includes('+') ? '+' : '');
+                }, 30);
             });
-        });
+        }
 
-        // AD SUBMISSION FORM HANDLER
-        document.getElementById('ad-submission-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get all form inputs
-            const formData = {
-                name: this.querySelector('input[placeholder="Your Name"]').value,
-                email: this.querySelector('input[placeholder="Your Email"]').value,
-                package: this.querySelector('select').value,
-                headline: this.querySelector('input[placeholder="Ad Headline"]').value,
-                description: this.querySelector('textarea').value,
-                url: this.querySelector('input[placeholder="Target URL"]').value
-            };
-            
-            // Create email body
-            const packageNames = {
-                'basic': 'Basic - $9.99',
-                'pro': 'Pro - $24.99',
-                'premium': 'Premium - $49.99'
-            };
-            
-            const emailBody = `
-NEW AD SUBMISSION - AdvertisePro
-=================================
-Customer Name: ${formData.name}
-Customer Email: ${formData.email}
-Package: ${packageNames[formData.package] || formData.package}
-Ad Headline: ${formData.headline}
-Ad Description: ${formData.description}
-Target URL: ${formData.url}
-Submission Date: ${new Date().toLocaleDateString()}
-=================================
+        // Trigger stats animation when in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    animateStats();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
 
-IMPORTANT: Customer should email ad image separately to roodyfilsaime15@gmail.com
-Include payment receipt number in the email with the image.
-
-Recommended image size: 728x90 or 300x250 pixels
-Maximum file size: 1MB
-`;
-            
-            // Open user's email client
-            const subject = `New Ad Submission - ${formData.headline}`;
-            const mailtoLink = `mailto:roodyfilsaime15@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-            
-            // Open in new tab
-            window.open(mailtoLink, '_blank');
-            
-            // Show success message
-            alert('✅ Ad details saved! Please check your email client.\n\nA pre-filled email has been prepared. Please:\n1. Send that email\n2. Attach your ad image to the same email\n3. Include your payment receipt number\n\nYour ad will be activated within 24 hours!');
-            
-            // Reset form
-            this.reset();
-        });
-
-        // Current year for copyright
-        document.querySelector('.copyright p').innerHTML = document.querySelector('.copyright p').innerHTML.replace('2023', new Date().getFullYear());
-
-        // Ad rotation for social proof
-        const adDays = document.querySelectorAll('.advertiser p');
-        adDays.forEach(ad => {
-            const days = Math.floor(Math.random() * 28) + 1;
-            ad.textContent = `Running for ${days} days`;
-        });
+        const statsBanner = document.querySelector('.stats-banner');
+        if(statsBanner) {
+            observer.observe(statsBanner);
+        }
     </script>
 </body>
 </html>
