@@ -111,6 +111,19 @@
             cursor: pointer;
         }
         
+        /* Trust Badge */
+        .trust-badge {
+            background: var(--success);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-left: 2rem;
+        }
+        
         /* BANNER SECTION */
         .banner {
             padding: 8rem 0 4rem;
@@ -209,6 +222,27 @@
             transform: translateY(-3px);
         }
         
+        /* Trust Indicators */
+        .trust-indicators {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .trust-item i {
+            color: var(--success);
+        }
+        
         /* Stats Banner */
         .stats-banner {
             background: white;
@@ -243,9 +277,122 @@
             font-size: 1.1rem;
         }
         
-        /* Active Ads Section */
-        .active-ads {
+        /* FEATURED ADVERTISERS */
+        .featured-advertisers {
+            background: var(--light);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .advertisers-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .advertisers-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            padding: 2rem;
             background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .advertiser-logo {
+            font-size: 2.5rem;
+            color: var(--gray);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .advertiser-logo:hover {
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .advertiser-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        /* Advertiser Testimonials */
+        .testimonials {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: serif;
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .author-info h4 {
+            color: var(--dark);
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* ACTIVE ADS SECTION */
+        .active-ads {
+            background: var(--light);
             padding: 5rem 0;
         }
         
@@ -281,11 +428,25 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid #eee;
+            position: relative;
         }
         
         .ad-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .ad-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
         }
         
         .ad-image {
@@ -296,6 +457,18 @@
             justify-content: center;
             color: white;
             font-size: 3rem;
+            position: relative;
+        }
+        
+        .ad-spots {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
         }
         
         .ad-content {
@@ -379,42 +552,6 @@
             width: 100%;
             height: 100%;
             border: none;
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 5rem 0;
-            background: var(--light);
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .feature {
-            text-align: center;
-            padding: 2.5rem 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-        }
-        
-        .feature:hover {
-            transform: translateY(-5px);
-        }
-        
-        .feature i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-        
-        .feature h3 {
-            margin-bottom: 1rem;
-            color: var(--dark);
         }
         
         /* CTA Section */
@@ -523,6 +660,10 @@
                 display: block;
             }
             
+            .trust-badge {
+                display: none;
+            }
+            
             .banner h1 {
                 font-size: 2.5rem;
             }
@@ -548,6 +689,11 @@
                 justify-content: center;
             }
             
+            .trust-indicators {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
             .stats-banner {
                 margin-top: 0;
                 border-radius: 0;
@@ -560,6 +706,15 @@
             }
             
             .stat-item h3 {
+                font-size: 2rem;
+            }
+            
+            .advertisers-logos {
+                gap: 2rem;
+                padding: 1.5rem;
+            }
+            
+            .advertiser-logo {
                 font-size: 2rem;
             }
         }
@@ -580,6 +735,14 @@
             .cta-section h2 {
                 font-size: 2rem;
             }
+            
+            .advertisers-logos {
+                gap: 1.5rem;
+            }
+            
+            .advertiser-logo {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -592,15 +755,17 @@
                     <i class="fas fa-bullhorn"></i>
                     AdvertisingPro
                 </a>
+                <div class="trust-badge">
+                    <i class="fas fa-shield-alt"></i> Trusted by 10K+ Advertisers
+                </div>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
+                    <li><a href="#advertisers">Advertisers</a></li>
                     <li><a href="#active-ads">Active Ads</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#testimonials">Success Stories</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -612,14 +777,29 @@
         <div class="container">
             <div class="banner-content">
                 <h1>Promote Your Affiliate Offers</h1>
-                <p>Maximize your earnings with our powerful advertising platform. Reach thousands of affiliates, track performance in real-time, and scale your affiliate marketing campaigns to new heights.</p>
+                <p>Join 10,000+ advertisers who trust AdvertisingPro to reach millions of targeted affiliates. Maximize your ROI with our premium advertising platform.</p>
                 <div class="banner-buttons">
                     <a href="#active-ads" class="btn-primary">
-                        <i class="fas fa-rocket"></i> Start Promoting Now
+                        <i class="fas fa-rocket"></i> Start Advertising Now
                     </a>
                     <button class="btn-secondary" id="watchDemoBtn">
-                        <i class="fas fa-play-circle"></i> Watch Demo
+                        <i class="fas fa-play-circle"></i> Watch Success Stories
                     </button>
+                </div>
+                
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Verified Advertisers Only</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-clock"></i>
+                        <span>24-48 Hour Approval</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Real-Time Performance Tracking</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -631,19 +811,105 @@
             <div class="stats-grid">
                 <div class="stat-item">
                     <h3 id="stat1">10K+</h3>
-                    <p>Active Affiliates</p>
+                    <p>Active Advertisers</p>
                 </div>
                 <div class="stat-item">
-                    <h3 id="stat2">$5M+</h3>
+                    <h3 id="stat2">$25M+</h3>
                     <p>Commission Paid</p>
                 </div>
                 <div class="stat-item">
-                    <h3 id="stat3">500+</h3>
+                    <h3 id="stat3">2.5K+</h3>
                     <p>Verified Offers</p>
                 </div>
                 <div class="stat-item">
-                    <h3 id="stat4">24/7</h3>
-                    <p>Support Available</p>
+                    <h3 id="stat4">98%</h3>
+                    <p>Satisfaction Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED ADVERTISERS SECTION -->
+    <section class="featured-advertisers" id="advertisers">
+        <div class="container">
+            <h2 class="advertisers-title">Trusted by Industry Leaders</h2>
+            <p class="section-title" style="margin-bottom: 3rem;">Join these successful brands advertising with us</p>
+            
+            <div class="advertisers-logos">
+                <div class="advertiser-logo">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="advertiser-name">ShopMaster</span>
+                </div>
+                <div class="advertiser-logo">
+                    <i class="fas fa-cloud"></i>
+                    <span class="advertiser-name">CloudHost Pro</span>
+                </div>
+                <div class="advertiser-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span class="advertiser-name">SkillAcademy</span>
+                </div>
+                <div class="advertiser-logo">
+                    <i class="fas fa-credit-card"></i>
+                    <span class="advertiser-name">FinTech Plus</span>
+                </div>
+                <div class="advertiser-logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <span class="advertiser-name">HealthFit</span>
+                </div>
+                <div class="advertiser-logo">
+                    <i class="fas fa-plane"></i>
+                    <span class="advertiser-name">TravelEase</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADVERTISER TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Advertiser Success Stories</h2>
+                <p>See what our advertisers are saying about their results</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "AdvertisingPro helped us scale our affiliate program from $10K to $250K monthly. The quality of affiliates is outstanding!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SD</div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Marketing Director, ShopMaster</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "We tried 3 other platforms before finding AdvertisingPro. The results speak for themselves - 300% ROI in first 90 days."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h4>Michael Rodriguez</h4>
+                            <p>CEO, CloudHost Pro</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "The real-time tracking and premium affiliate network delivered exactly what we needed. Highly recommended for serious advertisers."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">EK</div>
+                        <div class="author-info">
+                            <h4>Emma Kim</h4>
+                            <p>Growth Manager, SkillAcademy</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -653,47 +919,53 @@
     <section class="active-ads" id="active-ads">
         <div class="container">
             <div class="section-title">
-                <h2>Currently Active Campaigns</h2>
-                <p>Join thousands of affiliates already earning with these high-performing offers</p>
+                <h2>Premium Advertising Slots Available</h2>
+                <p>Limited spots available - Join these successful campaigns today</p>
             </div>
             <div class="ads-grid">
                 <div class="ad-card">
+                    <div class="ad-badge">Featured</div>
                     <div class="ad-image">
                         <i class="fas fa-shopping-cart"></i>
+                        <div class="ad-spots">Only 3 spots left</div>
                     </div>
                     <div class="ad-content">
                         <h3>E-Commerce Platform</h3>
-                        <p>Promote the leading e-commerce solution with up to 30% commission on every sale. Perfect for marketing and business blogs.</p>
+                        <p>Premium slot for top-tier e-commerce brands. Reach 50K+ active affiliates with proven conversion rates.</p>
                         <div class="ad-stats">
-                            <span><i class="fas fa-users"></i> 2,450 affiliates</span>
-                            <span><i class="fas fa-chart-line"></i> $45 avg. commission</span>
+                            <span><i class="fas fa-users"></i> 2,450 advertisers</span>
+                            <span><i class="fas fa-chart-line"></i> $45 avg. ROI</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="ad-card">
+                    <div class="ad-badge">Hot</div>
                     <div class="ad-image">
                         <i class="fas fa-laptop-code"></i>
+                        <div class="ad-spots">5 spots left</div>
                     </div>
                     <div class="ad-content">
                         <h3>Web Hosting Service</h3>
-                        <p>Earn $100+ for every new customer you refer to our premium hosting services. Recurring commissions available.</p>
+                        <p>High-ticket offers with recurring commissions. Perfect for tech brands targeting web professionals.</p>
                         <div class="ad-stats">
-                            <span><i class="fas fa-users"></i> 1,890 affiliates</span>
-                            <span><i class="fas fa-chart-line"></i> $120 avg. commission</span>
+                            <span><i class="fas fa-users"></i> 1,890 advertisers</span>
+                            <span><i class="fas fa-chart-line"></i> $120 avg. sale</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="ad-card">
+                    <div class="ad-badge">New</div>
                     <div class="ad-image">
                         <i class="fas fa-graduation-cap"></i>
+                        <div class="ad-spots">7 spots left</div>
                     </div>
                     <div class="ad-content">
                         <h3>Online Courses</h3>
-                        <p>Promote top-rated courses and earn 50% commission on every enrollment. High conversion rates in education niche.</p>
+                        <p>High-converting education niche. Target motivated learners with premium course offerings.</p>
                         <div class="ad-stats">
-                            <span><i class="fas fa-users"></i> 3,210 affiliates</span>
+                            <span><i class="fas fa-users"></i> 3,210 advertisers</span>
                             <span><i class="fas fa-chart-line"></i> $85 avg. commission</span>
                         </div>
                     </div>
@@ -702,46 +974,15 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Choose AdvertisingPro?</h2>
-                <p>Everything you need to succeed in affiliate marketing</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature">
-                    <i class="fas fa-bolt"></i>
-                    <h3>Quick Setup</h3>
-                    <p>Get started in minutes with our easy-to-use platform and pre-built templates.</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-chart-bar"></i>
-                    <h3>Real-Time Analytics</h3>
-                    <p>Track clicks, conversions, and earnings with detailed, real-time reporting.</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Secure Payments</h3>
-                    <p>Receive your commissions reliably with our secure payment system.</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-headset"></i>
-                    <h3>24/7 Support</h3>
-                    <p>Our expert team is always available to help you maximize your earnings.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Ready to Start Earning?</h2>
-            <p>Join thousands of successful affiliates who are already promoting offers and earning commissions with AdvertisingPro.</p>
+            <h2>Limited Advertising Slots Available</h2>
+            <p>Join 10,000+ successful advertisers. Premium spots fill quickly - secure your position today!</p>
             <a href="#home" class="btn-primary" style="font-size: 1.2rem; padding: 1.2rem 3rem;">
-                <i class="fas fa-user-plus"></i> Join Free Today
+                <i class="fas fa-calendar-check"></i> Reserve Your Spot Now
             </a>
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">Average response time: 2 hours</p>
         </div>
     </section>
 
@@ -749,11 +990,11 @@
     <div class="modal" id="videoModal">
         <div class="modal-content">
             <button class="close-modal" id="closeModal">&times;</button>
-            <h2>AdvertisingPro Demo</h2>
-            <p>Watch how easy it is to start earning with our platform:</p>
+            <h2>AdvertisingPro Success Stories</h2>
+            <p>See how top brands achieve remarkable results with our platform:</p>
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" 
-                        title="AdvertisingPro Demo Video" 
+                        title="AdvertisingPro Success Stories" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
@@ -768,28 +1009,35 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>AdvertisingPro</h3>
-                    <p>The premier platform for affiliate marketers looking to scale their advertising campaigns and maximize revenue.</p>
+                    <p>The premier platform connecting premium advertisers with top-performing affiliates since 2020.</p>
+                    <div style="margin-top: 1rem;">
+                        <span class="trust-badge" style="background: var(--primary); margin: 0;">
+                            <i class="fas fa-award"></i> Industry Leader
+                        </span>
+                    </div>
                 </div>
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
+                    <h3>For Advertisers</h3>
                     <ul class="footer-links">
-                        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                        <li><a href="#active-ads"><i class="fas fa-ad"></i> Active Ads</a></li>
-                        <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
-                        <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
+                        <li><a href="#"><i class="fas fa-chart-line"></i> Advertiser Dashboard</a></li>
+                        <li><a href="#"><i class="fas fa-wallet"></i> Pricing Plans</a></li>
+                        <li><a href="#"><i class="fasfa-book"></i> Advertiser Resources</a></li>
+                        <li><a href="#"><i class="fas fa-headset"></i> Advertiser Support</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Contact Us</h3>
+                    <h3>Contact Our Sales Team</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-envelope"></i> support@advertisingpro.com</li>
-                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> sales@advertisingpro.com</li>
+                        <li><i class="fas fa-phone"></i> (888) 123-4567</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri 9AM-6PM EST</li>
                         <li><i class="fas fa-map-marker-alt"></i> 123 Marketing St, Digital City</li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 AdvertisingPro. All rights reserved. | <a href="#" style="color: #4cc9f0;">Privacy Policy</a> | <a href="#" style="color: #4cc9f0;">Terms of Service</a></p>
+                <p>&copy; 2024 AdvertisingPro. All rights reserved. | <a href="#" style="color: #4cc9f0;">Advertiser Agreement</a> | <a href="#" style="color: #4cc9f0;">Privacy Policy</a> | <a href="#" style="color: #4cc9f0;">Terms of Service</a></p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">Average advertiser ROI: 350% | Platform uptime: 99.9%</p>
             </div>
         </div>
     </footer>
@@ -848,15 +1096,14 @@
 
         watchDemoBtn.addEventListener('click', () => {
             videoModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
+            document.body.style.overflow = 'hidden';
         });
 
         closeModal.addEventListener('click', () => {
             videoModal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
+            document.body.style.overflow = 'auto';
         });
 
-        // Close modal when clicking outside
         videoModal.addEventListener('click', (e) => {
             if(e.target === videoModal) {
                 videoModal.style.display = 'none';
@@ -868,9 +1115,9 @@
         function animateStats() {
             const stats = [
                 { element: document.getElementById('stat1'), target: 10000, prefix: '', suffix: '+' },
-                { element: document.getElementById('stat2'), target: 5000000, prefix: '$', suffix: '+' },
-                { element: document.getElementById('stat3'), target: 500, prefix: '', suffix: '+' },
-                { element: document.getElementById('stat4'), target: 24, prefix: '', suffix: '/7' }
+                { element: document.getElementById('stat2'), target: 25000000, prefix: '$', suffix: '+' },
+                { element: document.getElementById('stat3'), target: 2500, prefix: '', suffix: '+' },
+                { element: document.getElementById('stat4'), target: 98, prefix: '', suffix: '%' }
             ];
 
             stats.forEach((stat, index) => {
@@ -883,7 +1130,6 @@
                     if(current >= stat.target) {
                         current = stat.target;
                         clearInterval(timer);
-                        // Format final number
                         if(stat.target >= 1000000) {
                             stat.element.textContent = stat.prefix + (current/1000000).toFixed(1) + 'M' + stat.suffix;
                         } else if(stat.target >= 1000) {
@@ -892,7 +1138,6 @@
                             stat.element.textContent = stat.prefix + Math.floor(current) + stat.suffix;
                         }
                     } else {
-                        // Format during animation
                         if(stat.target >= 1000000) {
                             stat.element.textContent = stat.prefix + Math.floor(current/1000000) + 'M' + stat.suffix;
                         } else if(stat.target >= 1000) {
@@ -909,7 +1154,7 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) {
-                    setTimeout(animateStats, 300); // Small delay for better effect
+                    setTimeout(animateStats, 300);
                     observer.unobserve(entry.target);
                 }
             });
@@ -922,11 +1167,16 @@
 
         // Initialize with correct stats display
         document.addEventListener('DOMContentLoaded', () => {
-            // Set initial stat values
             document.getElementById('stat1').textContent = '10K+';
-            document.getElementById('stat2').textContent = '$5M+';
-            document.getElementById('stat3').textContent = '500+';
-            document.getElementById('stat4').textContent = '24/7';
+            document.getElementById('stat2').textContent = '$25M+';
+            document.getElementById('stat3').textContent = '2.5K+';
+            document.getElementById('stat4').textContent = '98%';
+            
+            // Add subtle animation to advertiser logos
+            const logos = document.querySelectorAll('.advertiser-logo');
+            logos.forEach((logo, index) => {
+                logo.style.animationDelay = `${index * 0.1}s`;
+            });
         });
     </script>
 </body>
