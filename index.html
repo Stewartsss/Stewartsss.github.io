@@ -28,6 +28,7 @@
             line-height: 1.6;
             color: var(--dark);
             background-color: var(--light);
+            overflow-x: hidden;
         }
         
         .container {
@@ -58,6 +59,13 @@
             font-weight: bold;
             color: var(--primary);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 1.8rem;
         }
         
         .nav-links {
@@ -71,13 +79,39 @@
             color: var(--dark);
             font-weight: 500;
             transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
         }
         
         .nav-links a:hover {
             color: var(--primary);
         }
         
-        /* BANNER SECTION - Updated to match your original */
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* BANNER SECTION */
         .banner {
             padding: 8rem 0 4rem;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -86,17 +120,36 @@
             min-height: 70vh;
             display: flex;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .banner:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0V100H1000V0C750,50 500,100 250,50S0,0,0,0Z" fill="white"/></svg>');
+            background-position: bottom;
+            background-repeat: no-repeat;
+            background-size: 100% 100px;
+            opacity: 0.1;
         }
         
         .banner-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
         
         .banner h1 {
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
             line-height: 1.2;
+            animation: fadeInUp 1s ease;
         }
         
         .banner p {
@@ -106,6 +159,7 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            animation: fadeInUp 1s ease 0.2s both;
         }
         
         .banner-buttons {
@@ -113,16 +167,21 @@
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
         }
         
         .btn-primary, .btn-secondary {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             padding: 1rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
         
         .btn-primary {
@@ -175,11 +234,13 @@
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 0.5rem;
+            font-weight: bold;
         }
         
         .stat-item p {
             color: var(--gray);
             font-weight: 500;
+            font-size: 1.1rem;
         }
         
         /* Active Ads Section */
@@ -265,6 +326,59 @@
         .ad-stats i {
             margin-right: 0.5rem;
             color: var(--primary);
+        }
+        
+        /* Video Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--dark);
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
         
         /* Features Section */
@@ -375,10 +489,38 @@
             font-size: 0.9rem;
         }
         
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
             }
             
             .banner h1 {
@@ -403,6 +545,7 @@
                 width: 100%;
                 max-width: 300px;
                 text-align: center;
+                justify-content: center;
             }
             
             .stats-banner {
@@ -413,6 +556,11 @@
             
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .stat-item h3 {
+                font-size: 2rem;
             }
         }
         
@@ -428,6 +576,10 @@
             .banner h1 {
                 font-size: 2rem;
             }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -436,8 +588,14 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">AdvertisingPro</a>
-                <ul class="nav-links">
+                <a href="#" class="logo">
+                    <i class="fas fa-bullhorn"></i>
+                    AdvertisingPro
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#active-ads">Active Ads</a></li>
                     <li><a href="#features">Features</a></li>
@@ -449,7 +607,7 @@
         </div>
     </header>
 
-    <!-- BANNER SECTION - With your exact text -->
+    <!-- BANNER SECTION -->
     <section class="banner" id="home">
         <div class="container">
             <div class="banner-content">
@@ -459,9 +617,9 @@
                     <a href="#active-ads" class="btn-primary">
                         <i class="fas fa-rocket"></i> Start Promoting Now
                     </a>
-                    <a href="#features" class="btn-secondary">
+                    <button class="btn-secondary" id="watchDemoBtn">
                         <i class="fas fa-play-circle"></i> Watch Demo
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -472,19 +630,19 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <h3>10,000+</h3>
+                    <h3 id="stat1">10K+</h3>
                     <p>Active Affiliates</p>
                 </div>
                 <div class="stat-item">
-                    <h3>$5M+</h3>
+                    <h3 id="stat2">$5M+</h3>
                     <p>Commission Paid</p>
                 </div>
                 <div class="stat-item">
-                    <h3>500+</h3>
+                    <h3 id="stat3">500+</h3>
                     <p>Verified Offers</p>
                 </div>
                 <div class="stat-item">
-                    <h3>24/7</h3>
+                    <h3 id="stat4">24/7</h3>
                     <p>Support Available</p>
                 </div>
             </div>
@@ -587,8 +745,25 @@
         </div>
     </section>
 
+    <!-- Video Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h2>AdvertisingPro Demo</h2>
+            <p>Watch how easy it is to start earning with our platform:</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" 
+                        title="AdvertisingPro Demo Video" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -601,7 +776,7 @@
                         <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
                         <li><a href="#active-ads"><i class="fas fa-ad"></i> Active Ads</a></li>
                         <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
-                        <li><a href="#how-it-works"><i class="fas fa-cogs"></i> How It Works</a></li>
+                        <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -620,6 +795,25 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -647,20 +841,66 @@
             }
         });
 
+        // Video modal functionality
+        const videoModal = document.getElementById('videoModal');
+        const watchDemoBtn = document.getElementById('watchDemoBtn');
+        const closeModal = document.getElementById('closeModal');
+
+        watchDemoBtn.addEventListener('click', () => {
+            videoModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+
+        closeModal.addEventListener('click', () => {
+            videoModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        });
+
+        // Close modal when clicking outside
+        videoModal.addEventListener('click', (e) => {
+            if(e.target === videoModal) {
+                videoModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
         // Animate stats counter
         function animateStats() {
-            const statItems = document.querySelectorAll('.stat-item h3');
-            statItems.forEach(stat => {
-                const target = parseInt(stat.textContent);
+            const stats = [
+                { element: document.getElementById('stat1'), target: 10000, prefix: '', suffix: '+' },
+                { element: document.getElementById('stat2'), target: 5000000, prefix: '$', suffix: '+' },
+                { element: document.getElementById('stat3'), target: 500, prefix: '', suffix: '+' },
+                { element: document.getElementById('stat4'), target: 24, prefix: '', suffix: '/7' }
+            ];
+
+            stats.forEach((stat, index) => {
+                if(!stat.element) return;
+                
                 let current = 0;
-                const increment = target / 50;
+                const increment = stat.target / 100;
                 const timer = setInterval(() => {
                     current += increment;
-                    if(current >= target) {
-                        current = target;
+                    if(current >= stat.target) {
+                        current = stat.target;
                         clearInterval(timer);
+                        // Format final number
+                        if(stat.target >= 1000000) {
+                            stat.element.textContent = stat.prefix + (current/1000000).toFixed(1) + 'M' + stat.suffix;
+                        } else if(stat.target >= 1000) {
+                            stat.element.textContent = stat.prefix + Math.floor(current/1000) + 'K' + stat.suffix;
+                        } else {
+                            stat.element.textContent = stat.prefix + Math.floor(current) + stat.suffix;
+                        }
+                    } else {
+                        // Format during animation
+                        if(stat.target >= 1000000) {
+                            stat.element.textContent = stat.prefix + Math.floor(current/1000000) + 'M' + stat.suffix;
+                        } else if(stat.target >= 1000) {
+                            stat.element.textContent = stat.prefix + Math.floor(current/1000) + 'K' + stat.suffix;
+                        } else {
+                            stat.element.textContent = stat.prefix + Math.floor(current) + stat.suffix;
+                        }
                     }
-                    stat.textContent = Math.floor(current) + (stat.textContent.includes('+') ? '+' : '');
                 }, 30);
             });
         }
@@ -669,7 +909,7 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) {
-                    animateStats();
+                    setTimeout(animateStats, 300); // Small delay for better effect
                     observer.unobserve(entry.target);
                 }
             });
@@ -679,6 +919,15 @@
         if(statsBanner) {
             observer.observe(statsBanner);
         }
+
+        // Initialize with correct stats display
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial stat values
+            document.getElementById('stat1').textContent = '10K+';
+            document.getElementById('stat2').textContent = '$5M+';
+            document.getElementById('stat3').textContent = '500+';
+            document.getElementById('stat4').textContent = '24/7';
+        });
     </script>
 </body>
 </html>
